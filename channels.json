@@ -1,0 +1,38 @@
+{
+    "channel1": {
+        "channel_name": "Channel 1",
+        "channel_number": 1,
+        "channel_description": "Mixing pot of all things",
+        "channel_strategies": ["Basic", "MoviesByTag", "TVMarathon"]
+    },
+    "channel2": {
+        "channel_name": "Movies",
+        "channel_number": 2,
+        "channel_description": "Movies",
+        "channel_strategies": ["MoviesByTag"]
+    },
+    "channel3": {
+        "channel_name": "PPV 1",
+        "channel_number": 3,
+        "channel_description": "PPV 1",
+        "channel_strategies": ["PPV"]
+    },
+    "channel4": {
+        "channel_name": "PPV 2",
+        "channel_number": 4,
+        "channel_description": "PPV 2",
+        "channel_strategies": ["PPV"]
+    },
+    "channel5": {
+        "channel_name": "PPV 3",
+        "channel_number": 5,
+        "channel_description": "PPV 3",
+        "channel_strategies": ["PPV"]
+    },
+    "channel6": {
+        "channel_name": "MTV",
+        "channel_number": 6,
+        "channel_description": "MTV",
+        "channel_strategies": ["MTV"]
+    }
+}

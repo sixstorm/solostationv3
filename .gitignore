@@ -1,0 +1,9 @@
+._*
+venv/
+metadata/
+.DS_Store
+.env
+*.mp4
+*.db
+*.whl
+*.pyc
