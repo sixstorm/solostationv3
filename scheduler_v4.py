@@ -415,7 +415,7 @@ class BasicStrategyMethod:
 
 # Functions
 def initialize_schedule_db():
-    logging.info("Initializing Schedule DB")
+    logging.debug("Initializing Schedule DB")
     with sqlite3.connect(os.getenv("SCHEDULE_DB")) as conn:
         cursor = conn.cursor()
 

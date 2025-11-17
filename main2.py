@@ -154,42 +154,42 @@ for channel in scheduler_v4.import_channel_data():
     if not schedule_check:
         scheduler_v4.create_schedule(channel)
 
-# while True:
-#     channel_changed = False
-#     schedule = get_schedule(current_channel_number)
+while True:
+    channel_changed = False
+    schedule = get_schedule(current_channel_number)
 
-#     while not channel_changed:
-#         now = datetime.now()
+    while not channel_changed:
+        now = datetime.now()
 
-#         # Build playlist
-#         # Find current slot
-#         playing_now = [i for i in schedule if now >= convert_dt(i["start"]) and now <= convert_dt(i["end"])][0]
-#         logging.info(f"Currently playing: {playing_now['name']}\tStart: {playing_now['start']}\tEnd: {playing_now['end']}")    
-#         playing_now_index = schedule.index(playing_now)
+        # Build playlist
+        # Find current slot
+        playing_now = [i for i in schedule if now >= convert_dt(i["start"]) and now <= convert_dt(i["end"])][0]
+        logging.info(f"Currently playing: {playing_now['name']}\tStart: {playing_now['start']}\tEnd: {playing_now['end']}")    
+        playing_now_index = schedule.index(playing_now)
 
-#         # Build playlist from playing_now to end of schedule        
-#         for item in schedule[playing_now_index:]:
-#             player.playlist_append(item["filepath"])
+        # Build playlist from playing_now to end of schedule        
+        for item in schedule[playing_now_index:]:
+            player.playlist_append(item["filepath"])
 
-#         # Set MPV at beginning of playlist
-#         logging.debug("Setting position at 0")
-#         player.playlist_pos = 0
+        # Set MPV at beginning of playlist
+        logging.debug("Setting position at 0")
+        player.playlist_pos = 0
 
-#         # Load file and wait for property "duration" to be available
-#         player.command("loadfile", playing_now["filepath"], "replace")
-#         player.wait_for_property("duration")
+        # Load file and wait for property "duration" to be available
+        player.command("loadfile", playing_now["filepath"], "replace")
+        player.wait_for_property("duration")
 
-#         # Get seek time and seek
-#         seek_time = (now - convert_dt(playing_now["start"])).total_seconds()
-#         logging.debug(f"Seeking {seek_time}s")
-#         player.time_pos = int(seek_time)
+        # Get seek time and seek
+        seek_time = (now - convert_dt(playing_now["start"])).total_seconds()
+        logging.debug(f"Seeking {seek_time}s")
+        player.time_pos = int(seek_time)
 
-#         # Show channel number
-#         update_osd_text(player, f"{current_channel_number}")
+        # Show channel number
+        update_osd_text(player, f"{current_channel_number}")
 
-#         # Main playback loop
-#         while now < convert_dt(playing_now["end"]) and not channel_changed:
-#             now = datetime.now()
-#             time.sleep(0.1)
-#             if channel_changed:
-#                 break
+        # Main playback loop
+        while now < convert_dt(playing_now["end"]) and not channel_changed:
+            now = datetime.now()
+            time.sleep(0.1)
+            if channel_changed:
+                break
